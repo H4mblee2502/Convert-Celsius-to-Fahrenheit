@@ -123,9 +123,7 @@ button::-webkit-outer-spin-button, input::-webkit-inner-spin-button{
 .swap-cell button:hover{
     color: black;
 }
-.arrows{
 
-}
 @media (max-width: 800px){
     .content{
         height: 250px;
