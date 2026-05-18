@@ -1,0 +1,44 @@
+name: Deploy to GitHub Pages
+
+on:
+  # Runs automatically whenever you push code to the main branch
+  push:
+    branches: ["main"]
+
+  # Allows you to manually trigger the deployment from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      # Fixed: Single quotes added and the extra space/colon removed to prevent syntax errors
+      url: '${{ steps.deployment.outputs.page_url }}'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Uploads your entire root directory containing index.html, style.css, and conversion.js
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

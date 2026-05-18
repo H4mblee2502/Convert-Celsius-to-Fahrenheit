@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert Celsius to Fahrenheit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="content">
+        <h1>Convert<br>Temperature</h1>
+        <table>
+           <tr>
+                <td>
+                    <label>From:</label>
+                </td>
+                <td>
+                    <input class="input-celcius" inputmode="numeric" type="number" id="textBox1"  placeholder="Celcius">
+                </td>
+                <td rowspan="2" class="swap-cell">
+                    <button onclick="swapUnits()" class="swap-cell">&udarr;</button>
+                </td>
+           </tr>
+           <tr>
+              <td>
+                    <label>To:</label>
+                </td>
+                <td>
+                    <input class="input-fahrenheit" inputmode="numeric" type="number" id="textBox2"  placeholder="Fahrenheit">
+                </td>
+           </tr>
+            <tr class="pressBtn">
+                <td colspan="3" >
+                    <div class="button-container">
+                        <button onclick="convert()" type="button">Convert</button>
+                        <button onclick="clearForm()" type="button">Clear</button>
+                    </div>
+                <p id="result"></p>
+            </tr>
+            </table> 
+    </div>
+
+
+    <script src="conversion.js"></script>
+</body>
+</html>
